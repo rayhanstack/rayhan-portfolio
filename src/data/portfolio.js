@@ -1,21 +1,21 @@
 // src/data/portfolio.js — All portfolio content in one place
 
 export const personal = {
-  name: 'Rayhan Ahmed',
+  name: 'Rayhan',
   title: 'Full Stack Developer',
-  roles: ['Full Stack Developer', 'Laravel Engineer', 'Vue.js Specialist', 'API Architect'],
+  roles: ['Full Stack Developer','PHP & Laravel Expert','Vue.js Specialist','React Developer','REST API Architect','SaaS Application Developer','Performance Optimization Expert'],
   tagline: 'Crafting digital experiences that matter.',
   description:
     'I build robust, scalable web applications with clean code and elegant interfaces. Specializing in Laravel & Vue.js ecosystems.',
-  email: 'rayhan@example.com',
-  phone: '+880 1XXX-XXXXXX',
+  email: 'rayhanali0907@gmail.com',
+  phone: '+880 1797-736085',
   location: 'Dhaka, Bangladesh',
   resumeUrl: '#',
   availableForWork: true,
   socials: [
     { name: 'GitHub',   url: 'https://github.com',   icon: 'Github' },
     { name: 'LinkedIn', url: 'https://linkedin.com',  icon: 'Linkedin' },
-    { name: 'Twitter',  url: 'https://twitter.com',   icon: 'Twitter' },
+    { name: 'Facebook',  url: 'https://facebook.com',   icon: 'Facebook' },
   ],
 }
 

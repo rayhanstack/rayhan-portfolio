@@ -37,7 +37,7 @@
             <a :href="social.url" class="social-link" :aria-label="social.name" target="_blank" rel="noopener noreferrer">
               <Github v-if="social.icon === 'Github'" :size="18" />
               <Linkedin v-else-if="social.icon === 'Linkedin'" :size="18" />
-              <Twitter v-else-if="social.icon === 'Twitter'" :size="18" />
+              <Facebook v-else-if="social.icon === 'Facebook'" :size="18" />
             </a>
           </template>
           <div class="social-divider" aria-hidden="true"></div>
