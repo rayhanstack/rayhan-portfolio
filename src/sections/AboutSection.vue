@@ -7,7 +7,11 @@
           <div class="about-img-wrap">
             <div class="about-img-placeholder" aria-label="Profile photo placeholder">
               <div class="img-inner">
-                <User :size="72" />
+                <!-- <User :size="72" /> -->
+                 <img
+                    src="@/assets/images/rayhan.jpeg"
+                    :alt="personal.name"
+                />
               </div>
               <!-- Accent ring -->
               <div class="img-ring" aria-hidden="true"></div>
@@ -78,7 +82,7 @@ import { personal, about, stats } from '@/data/portfolio'
 const highlights = [
   { label: 'Location',    value: personal.location,  iconComp: MapPin },
   { label: 'Email',       value: personal.email,     iconComp: Mail },
-  { label: 'Stack',       value: 'Laravel · Vue 3',  iconComp: Code2 },
+  { label: 'Stack',       value: 'PHP · Laravel · Vue · React',  iconComp: Code2 },
   { label: 'Availability',value: 'Open to work',     iconComp: Clock },
 ]
 </script>
@@ -124,6 +128,7 @@ const highlights = [
   align-items: center;
   justify-content: center;
   color: var(--accent);
+  overflow: hidden;
 }
 
 .img-ring {

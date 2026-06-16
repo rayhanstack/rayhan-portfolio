@@ -13,9 +13,9 @@ export const personal = {
   resumeUrl: '#',
   availableForWork: true,
   socials: [
-    { name: 'GitHub',   url: 'https://github.com',   icon: 'Github' },
-    { name: 'LinkedIn', url: 'https://linkedin.com',  icon: 'Linkedin' },
-    { name: 'Facebook',  url: 'https://facebook.com',   icon: 'Facebook' },
+    { name: 'GitHub',   url: 'https://github.com/rayhanstack',   icon: 'Github' },
+    { name: 'LinkedIn', url: 'https://linkedin.com/in/rayhanali0977',  icon: 'Linkedin' },
+    { name: 'Facebook',  url: 'https://facebook.com/Rayhan0977',   icon: 'Facebook' },
   ],
 }
 
