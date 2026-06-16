@@ -74,14 +74,30 @@ export const skills = [
     color: 'accent',
     icon: 'Wrench',
     items: [
-      { name: 'Git / GitHub', level: 93, icon: '🐙' },
+      { name: 'Git / GitHub / GitLab', level: 93, icon: '🐙' },
       { name: 'Docker',       level: 70, icon: '🐳' },
-      { name: 'Vite',         level: 90, icon: '⚡' },
       { name: 'Figma',        level: 75, icon: '🎭' },
       { name: 'Postman',      level: 88, icon: '📮' },
-      { name: 'Vercel / VPS', level: 82, icon: '🚀' },
+      { name: 'Vercel / VPS / AWS', level: 82, icon: '🚀' },
+      { name: 'CI/CD',         level: 65, icon: '🔄' },
+      { name: 'Linux',        level: 80, icon: '🐧' },
+      { name: 'Microservices', level: 60, icon: '⚙️' },
+      { name: 'Kubernetes',   level: 50, icon: '⚙️' },
     ],
   },
+  {
+    category: 'AI & Automation',
+    color: 'violet',
+    icon: 'Robot',
+    items: [
+      { name: 'Prompt Engineering', level: 65, icon: '📝' },
+      { name: 'OpenAI API', level: 70, icon: '🤖' },
+      { name: 'Claude API', level: 70, icon: '🤖' },
+      { name: 'AI Chatbot Development', level: 65, icon: '🤖' },
+      { name: 'Workflow Automation', level: 60, icon: '⚙️' },
+      { name: 'MCP (Model Context Protocol)', level: 50, icon: '🔗' },
+    ],
+  }
 ]
 
 export const projects = [

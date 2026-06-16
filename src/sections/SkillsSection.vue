@@ -1,6 +1,5 @@
 <template>
   <section id="skills" class="section" aria-labelledby="skills-heading">
-    <!-- Subtle bg gradient -->
     <div class="skills-bg" aria-hidden="true"></div>
 
     <div class="container" style="position:relative; z-index:1;">
@@ -21,7 +20,7 @@
           v-for="(group, i) in skills"
           :key="group.category"
           :class="['skill-tab', { active: activeTab === i }]"
-          @click="activeTab = i"
+          @click="selectTab(i)"
           :aria-selected="activeTab === i"
           role="tab"
           :id="`tab-${i}`"
@@ -29,11 +28,12 @@
         >
           <component :is="getIcon(group.icon)" :size="15" />
           {{ group.category }}
+          <span class="tab-count mono">{{ group.items.length }}</span>
         </button>
       </div>
 
       <!-- Skills panel -->
-      <Transition name="tab-fade" mode="out-in">
+      <Transition name="panel-fade" mode="out-in">
         <div
           :key="activeTab"
           class="skills-panel"
@@ -45,21 +45,30 @@
             <div
               v-for="(skill, i) in skills[activeTab].items"
               :key="skill.name"
-              class="skill-card reveal"
-              :data-delay="i * 60"
+              class="skill-card"
+              :style="{ animationDelay: `${i * 55}ms` }"
             >
               <div class="skill-top">
                 <div class="skill-info">
-                  <span class="skill-emoji" aria-hidden="true">{{ skill.icon }}</span>
+                  <span class="skill-emoji-wrap" :class="`tone-${skills[activeTab].color}`">
+                    <span class="skill-emoji" aria-hidden="true">{{ skill.icon }}</span>
+                  </span>
                   <span class="skill-name">{{ skill.name }}</span>
                 </div>
                 <span class="skill-pct mono">{{ skill.level }}%</span>
               </div>
-              <div class="skill-bar-track" role="progressbar" :aria-valuenow="skill.level" aria-valuemin="0" aria-valuemax="100" :aria-label="`${skill.name} proficiency`">
+              <div
+                class="skill-bar-track"
+                role="progressbar"
+                :aria-valuenow="skill.level"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                :aria-label="`${skill.name} proficiency`"
+              >
                 <div
                   class="skill-bar-fill"
                   :class="`fill-${skills[activeTab].color}`"
-                  :style="{ width: animated ? skill.level + '%' : '0%' }"
+                  :style="{ width: skill.level + '%', transitionDelay: `${i * 55 + 80}ms` }"
                 ></div>
               </div>
             </div>
@@ -79,22 +88,18 @@
 </template>
 
 <script setup>
-import { ref, watch, nextTick } from 'vue'
+import { ref } from 'vue'
 import { Monitor, Server, Database, Wrench } from 'lucide-vue-next'
 import { skills } from '@/data/portfolio'
 
 const activeTab = ref(0)
-const animated = ref(false)
 
 const iconMap = { Monitor, Server, Database, Wrench }
 function getIcon(name) { return iconMap[name] || Monitor }
 
-// Animate bars when tab changes
-watch(activeTab, async () => {
-  animated.value = false
-  await nextTick()
-  requestAnimationFrame(() => { animated.value = true })
-}, { immediate: true })
+function selectTab(i) {
+  activeTab.value = i
+}
 
 const extraTechs = [
   'Inertia.js', 'Livewire', 'Alpine.js', 'Webpack', 'Pinia', 'Vuex',
@@ -121,28 +126,29 @@ const extraTechs = [
   line-height: 1.7;
 }
 
-/* Tabs */
+/* ── Tabs ─────────────────────────────────────────────────────── */
 .skill-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .skill-tab {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 20px;
-  border-radius: 100px;
+  padding: 10px 18px;
+  border-radius: 12px;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
-  transition: all 200ms;
+  transition: all 200ms var(--ease-smooth);
   font-family: var(--font-body);
+  position: relative;
 }
 .skill-tab:hover { border-color: var(--border); color: var(--text-primary); }
 .skill-tab.active {
@@ -151,23 +157,45 @@ const extraTechs = [
   color: var(--accent);
 }
 
-/* Grid */
+.tab-count {
+  font-size: 0.68rem;
+  padding: 1px 7px;
+  border-radius: 100px;
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.skill-tab.active .tab-count {
+  background: rgba(108,99,255,0.18);
+  color: var(--accent);
+}
+
+/* ── Panel ────────────────────────────────────────────────────── */
+.skills-panel { min-height: 100px; }
+
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 14px;
 }
 @media (min-width: 600px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1024px) { .skills-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
 .skill-card {
-  padding: 20px;
+  padding: 18px 20px;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
   transition: border-color 250ms, transform 250ms;
+  opacity: 0;
+  animation: card-rise 0.5s var(--ease-out-expo) forwards;
 }
 .skill-card:hover { border-color: var(--border); transform: translateY(-2px); }
+
+@keyframes card-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 .skill-top {
   display: flex;
@@ -179,10 +207,32 @@ const extraTechs = [
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
 }
-.skill-emoji { font-size: 1.1rem; line-height: 1; }
-.skill-name { font-size: 0.9rem; font-weight: 500; color: var(--text-primary); }
-.skill-pct { font-size: 0.78rem; color: var(--text-muted); }
+
+.skill-emoji-wrap {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.tone-accent { background: var(--accent-dim); }
+.tone-cyan   { background: var(--cyan-dim); }
+.tone-violet { background: rgba(176, 110, 255, 0.12); }
+
+.skill-emoji { font-size: 0.95rem; line-height: 1; }
+.skill-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.skill-pct { font-size: 0.75rem; color: var(--text-muted); flex-shrink: 0; }
 
 .skill-bar-track {
   height: 5px;
@@ -192,16 +242,17 @@ const extraTechs = [
 }
 .skill-bar-fill {
   height: 100%;
+  width: 0%;
   border-radius: 100px;
-  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.8s var(--ease-out-expo);
 }
 .fill-accent { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
 .fill-cyan   { background: linear-gradient(90deg, #00D9F5, #4DE8FF); }
 .fill-violet { background: linear-gradient(90deg, var(--violet), #C893FF); }
 
-/* Tech cloud */
+/* ── Tech cloud ───────────────────────────────────────────────── */
 .tech-cloud {
-  margin-top: 60px;
+  margin-top: 56px;
   text-align: center;
 }
 .tech-cloud-label {
@@ -231,10 +282,10 @@ const extraTechs = [
   color: var(--accent);
 }
 
-/* Tab transition */
-.tab-fade-enter-active, .tab-fade-leave-active {
-  transition: opacity 200ms, transform 200ms;
+/* ── Panel transition ─────────────────────────────────────────── */
+.panel-fade-enter-active, .panel-fade-leave-active {
+  transition: opacity 180ms, transform 180ms;
 }
-.tab-fade-enter-from { opacity: 0; transform: translateY(8px); }
-.tab-fade-leave-to   { opacity: 0; transform: translateY(-8px); }
+.panel-fade-enter-from { opacity: 0; transform: translateY(6px); }
+.panel-fade-leave-to   { opacity: 0; transform: translateY(-6px); }
 </style>
