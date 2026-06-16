@@ -38,12 +38,13 @@ export const skills = [
     color: 'accent',
     icon: 'Monitor',
     items: [
-      { name: 'Vue.js 3',     level: 95, icon: '⚡' },
-      { name: 'React',        level: 80, icon: '⚛️' },
+      { name: 'Vue.js',       level: 95, icon: '⚡' },
+      { name: 'React.js',     level: 80, icon: '⚛️' },
       { name: 'JavaScript',   level: 92, icon: '𝗝𝗦' },
-      { name: 'Tailwind CSS', level: 95, icon: '🎨' },
+      { name: 'Tailwind CSS', level: 75, icon: '🎨' },
+      { name: 'Bootstrap',    level: 95, icon: '🅱️' },
       { name: 'Inertia.js',   level: 90, icon: '🔗' },
-      { name: 'TypeScript',   level: 75, icon: '🔷' },
+      { name: 'TypeScript',   level: 60, icon: '🔷' },
     ],
   },
   {
@@ -51,10 +52,9 @@ export const skills = [
     color: 'cyan',
     icon: 'Server',
     items: [
-      { name: 'Laravel',    level: 95, icon: '🔴' },
       { name: 'PHP',        level: 90, icon: '🐘' },
+      { name: 'Laravel',    level: 95, icon: '🔴' },
       { name: 'REST API',   level: 92, icon: '📡' },
-      { name: 'Node.js',    level: 70, icon: '🟩' },
     ],
   },
   {
@@ -63,6 +63,7 @@ export const skills = [
     icon: 'Database',
     items: [
       { name: 'MySQL',      level: 90, icon: '🐬' },
+      { name: 'Sqlite',     level: 85, icon: '🗄️' },
       { name: 'PostgreSQL', level: 80, icon: '🐘' },
       { name: 'Redis',      level: 72, icon: '🔴' },
       { name: 'SQLite',     level: 85, icon: '🗄️' },
