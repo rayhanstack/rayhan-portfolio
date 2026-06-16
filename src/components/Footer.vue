@@ -24,7 +24,7 @@
             >
               <Github v-if="s.icon === 'Github'" :size="16" />
               <Linkedin v-else-if="s.icon === 'Linkedin'" :size="16" />
-              <Twitter v-else-if="s.icon === 'Twitter'" :size="16" />
+              <Facebook v-else-if="s.icon === 'Facebook'" :size="16" />
             </a>
           </div>
         </div>
@@ -62,9 +62,7 @@
       <!-- Bottom bar -->
       <div class="footer-bottom">
         <p class="footer-copy">
-          © {{ new Date().getFullYear() }} {{ personal.name }}. Built with
-          <span class="heart" aria-label="love">♥</span>
-          using Vue 3 &amp; Tailwind CSS.
+          © {{ new Date().getFullYear() }} {{ personal.name }}.
         </p>
         <a href="#hero" class="back-top-btn" aria-label="Back to top">
           <ChevronUp :size="16" />
@@ -76,7 +74,7 @@
 </template>
 
 <script setup>
-import { Mail, MapPin, Github, Linkedin, Twitter, ChevronUp } from 'lucide-vue-next'
+import { Mail, MapPin, Github, Linkedin, Facebook, ChevronUp } from 'lucide-vue-next'
 import { personal, navLinks } from '@/data/portfolio'
 </script>
 

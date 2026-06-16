@@ -1,5 +1,3 @@
-// src/data/portfolio.js — All portfolio content in one place
-
 export const personal = {
   name: 'Rayhan',
   title: 'Full Stack Developer',
@@ -10,7 +8,7 @@ export const personal = {
   email: 'rayhanali0907@gmail.com',
   phone: '+880 1797-736085',
   location: 'Dhaka, Bangladesh',
-  resumeUrl: '#',
+  resumeUrl: import.meta.env.VITE_RESUME_URL || '#',
   availableForWork: true,
   socials: [
     { name: 'GitHub',   url: 'https://github.com/rayhanstack',   icon: 'Github' },
