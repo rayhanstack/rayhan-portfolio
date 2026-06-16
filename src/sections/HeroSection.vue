@@ -63,23 +63,17 @@
           </div>
         </div>
 
-        <div class="orbit-ring orbit-inner">
-          <div v-for="(tech, i) in innerOrbit" :key="tech.label"
-               class="orbit-item"
-               :style="orbitStyle(i, innerOrbit.length, 'inner')">
-            <div class="orbit-icon sm" :style="{ background: tech.bg, color: tech.color }">
-              <span>{{ tech.emoji }}</span>
-            </div>
-          </div>
-        </div>
-
         <!-- Center card -->
         <div class="v-center-card">
           <!-- Profile avatar -->
           <div class="v-avatar-wrap">
             <div class="v-avatar">
               <div class="v-avatar-inner">
-                <span class="v-avatar-initials">RA</span>
+                <img
+                    src="@/assets/images/avatar.jpeg"
+                    :alt="personal.name"
+                    class="v-avatar-image"
+                />
               </div>
             </div>
             <!-- Rotating dashed ring -->
@@ -158,7 +152,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-import { Zap, FolderOpen, Download, Github, Linkedin, Twitter, CheckCircle, Star } from 'lucide-vue-next'
+import { Zap, FolderOpen, Download, Github, Linkedin, Facebook, CheckCircle, Star } from 'lucide-vue-next'
 import { personal, stats } from '@/data/portfolio'
 
 // ── Typewriter ────────────────────────────────────────────────
@@ -182,18 +176,15 @@ function typeRole() {
 
 // ── Orbit layout ──────────────────────────────────────────────
 const outerOrbit = [
-  { label: 'Laravel',   emoji: '🔴', bg: 'rgba(255,45,45,0.12)',    color: '#FF6B6B' },
-  { label: 'Vue 3',     emoji: '⚡', bg: 'rgba(65,184,131,0.12)',   color: '#41B883' },
+  { label: 'PHP',       emoji: '🐘', bg: 'rgba(119,123,180,0.12)', color: '#777BB4' },
+  { label: 'Laravel',   emoji: '🚀', bg: 'rgba(255,45,45,0.12)',    color: '#FF6B6B' },
+  { label: 'Vue 3',     emoji: '💚', bg: 'rgba(65,184,131,0.12)',   color: '#41B883' },
+  { label: 'React',     emoji: '⚛️',  bg: 'rgba(97,218,251,0.12)', color: '#61DAFB' },
   { label: 'Tailwind',  emoji: '🎨', bg: 'rgba(56,189,248,0.12)',   color: '#38BDF8' },
   { label: 'MySQL',     emoji: '🐬', bg: 'rgba(0,147,201,0.12)',    color: '#0093C9' },
   { label: 'Git',       emoji: '🐙', bg: 'rgba(240,80,50,0.12)',    color: '#F05032' },
-  { label: 'PHP',       emoji: '🐘', bg: 'rgba(119,123,180,0.12)', color: '#777BB4' },
-]
-const innerOrbit = [
-  { label: 'Vite',    emoji: '⚡', bg: 'rgba(189,52,254,0.12)', color: '#BD34FE' },
-  { label: 'React',   emoji: '⚛️',  bg: 'rgba(97,218,251,0.12)', color: '#61DAFB' },
-  { label: 'Docker',  emoji: '🐳', bg: 'rgba(13,183,237,0.12)', color: '#0DB7ED' },
-  { label: 'Linux',   emoji: '🐧', bg: 'rgba(255,200,40,0.12)', color: '#FFC828' },
+  { label: 'Docker',    emoji: '🐳', bg: 'rgba(13,183,237,0.12)', color: '#0DB7ED' },
+  { label: 'Linux',     emoji: '🐧', bg: 'rgba(255,200,40,0.12)', color: '#FFC828' },
 ]
 
 function orbitStyle(i, total, ring) {
@@ -409,37 +400,53 @@ onUnmounted(() => {
 
 /* Avatar */
 .v-avatar-wrap {
-  position:relative;
-  width:68px;height:68px;
-  flex-shrink:0;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
 }
 .v-avatar {
-  width:68px;height:68px;border-radius:50%;
-  background:linear-gradient(135deg,var(--accent),var(--cyan));
-  padding:2px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    padding: 3px;
 }
 .v-avatar-inner {
-  width:100%;height:100%;border-radius:50%;
-  background:var(--bg-card);
-  display:flex;align-items:center;justify-content:center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;          /* গুরুত্বপূর্ণ */
+    background: var(--bg-card);
 }
-.v-avatar-initials {
-  font-family:var(--font-display);font-size:1.3rem;font-weight:800;
-  background:var(--gradient-hero);-webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;background-clip:text;
+
+.v-avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* image crop হয়ে perfectly fit হবে */
+    object-position: center top;
+    display: block;
 }
 .v-avatar-ring {
-  position:absolute;inset:-5px;border-radius:50%;
-  border:1.5px dashed rgba(108,99,255,.35);
-  animation:ring-spin 10s linear infinite;
-  pointer-events:none;
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(108, 99, 255, 0.35);
+    animation: ring-spin 10s linear infinite;
+    pointer-events: none;
 }
+
 @keyframes ring-spin{to{transform:rotate(360deg);}}
 .v-online-dot {
-  position:absolute;bottom:2px;right:2px;
-  width:12px;height:12px;border-radius:50%;
-  background:#28C840;border:2px solid var(--bg-card);
-  animation:pulse-dot 2s ease infinite;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #28C840;
+    border: 3px solid var(--bg-card);
+    animation: pulse-dot 2s ease infinite;
 }
 @keyframes pulse-dot{
   0%,100%{box-shadow:0 0 0 0 rgba(40,200,64,.5);}
