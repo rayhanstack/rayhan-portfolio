@@ -177,27 +177,35 @@ export const services = [
 
 export const experience = [
   {
-    company: 'Freelance',
-    role: 'Senior Full Stack Developer',
-    duration: '2022 — Present',
+    company: 'Dream71, Dhaka',
+    role: 'Software Engineer',
+    duration: 'Mar 2026 - Present',
     description:
-      'Delivering high-quality web applications for clients across Bangladesh and internationally. Projects span SaaS dashboards, e-commerce, and custom CMSes.',
+      'Engineer and maintain high-impact software solutions for local government entities and international clients. Collaborate in cross-functional teams to architect, build, and deploy scalable, microservices-driven features. Optimize application performance utilizing caching and containerization, while enforcing robust, industry-standard security protocols.',
+    technologies: ['Laravel', 'Vue 3', 'React', 'MySQL', 'PgSQL', 'Microservices', 'Redis', 'Docker'],
+  },
+  {
+    company: 'OnestTech, Dhaka',
+    role: 'Software Engineer',
+    duration: 'July 2025 — May 2026',
+    description:
+      'Develop and maintain a commercial CodeCanyon product, ensuring high availability and code quality. Collaborate with cross-functional teams to design, architect, and deploy scalable new features. Optimize application performance for faster load times and implement industry-standard security best practices.',
     technologies: ['Laravel', 'Vue 3', 'React', 'MySQL', 'Tailwind'],
   },
   {
-    company: 'TechStartup BD',
-    role: 'Full Stack Developer',
-    duration: '2021 — 2022',
+    company: 'DR. Myatt Academy, Canada',
+    role: 'Backend Developer',
+    duration: 'Oct 2023 — Apr 2024',
     description:
-      'Built and maintained a multi-tenant SaaS platform serving 500+ businesses, focusing on performance, reliability, and iterative feature delivery.',
-    technologies: ['Laravel', 'Vue.js', 'PostgreSQL', 'Redis', 'Docker'],
+      'Contributed as a Remote Backend Developer in the development of a comprehensive school management system. Focused on building RESTful APIs, database design, and integrating third-party services to enhance functionality.',
+    technologies: ['Laravel', 'React.js', 'MySQL', 'Redis', 'Docker'],
   },
   {
-    company: 'WebAgency Dhaka',
-    role: 'Junior Web Developer',
-    duration: '2020 — 2021',
+    company: 'Seopage1,Dhaka',
+    role: 'Junior Laravel Developer',
+    duration: 'Mar 2023 — Feb 2025',
     description:
-      'Developed client websites and internal tools. Gained strong fundamentals in PHP, MySQL, and frontend development with real production constraints.',
+      'Developed in-house ERP system. Gained strong fundamentals in PHP, MySQL, and frontend development with real production constraints.',
     technologies: ['PHP', 'jQuery', 'MySQL', 'Bootstrap'],
   },
 ]
@@ -205,43 +213,39 @@ export const experience = [
 export const education = [
   {
     degree: 'B.Sc. in Computer Science & Engineering',
-    institution: 'University of Dhaka',
-    duration: '2017 — 2021',
-    grade: 'CGPA 3.7 / 4.0',
-    highlights: ['Data Structures & Algorithms', 'Database Management', 'Software Engineering'],
+    institution: 'Europa University',
+    duration: '2025 — Present',
   },
   {
-    degree: 'HSC — Science',
-    institution: 'Dhaka College',
-    duration: '2015 — 2017',
-    grade: 'GPA 5.0 / 5.0',
-    highlights: ['Physics', 'Mathematics', 'Chemistry'],
+    degree: 'Diploma in Computer Science & Engineering',
+    institution: 'Bangladesh Polytechnic Institute',
+    duration: '2018 — 2022',
   },
 ]
 
 export const certifications = [
-  { title: 'Laravel Certification',          issuer: 'Laravel LLC',            year: '2023', icon: '🔴' },
-  { title: 'Vue.js 3 Advanced',              issuer: 'Vue Mastery',             year: '2023', icon: '⚡' },
-  { title: 'AWS Cloud Practitioner',         issuer: 'Amazon Web Services',     year: '2022', icon: '☁️' },
-  { title: 'JavaScript Algorithms — Expert', issuer: 'freeCodeCamp',            year: '2022', icon: '🏆' },
+  { title: 'DevOps', issuer: 'UDEMY',            year: 'Apr 2026 - Present', icon: '🏆' },
+  { title: 'PHP with Laravel Framework',          issuer: 'BASIS-SEIP (BITM)',            year: 'Sep 2022 - Dec 2022', icon: '🔴' },
+  { title: 'Full Stack Web Development',              issuer: 'OSTAD LIMITED',             year: 'Nov 2024 - Apr 2025', icon: '⚡' },
+  { title: 'PHP with Laravel Framework',         issuer: 'BOHUBRIHI',     year: 'Jan 2021 - Mar 2021', icon: '☁️' },
 ]
 
 export const testimonials = [
   {
-    name:     'Sarah Johnson',
-    position: 'CTO, FinTech Startup',
+    name:     'Babu K',
+    position: 'DGM, Seopage1',
     avatar:   null,
     review:   "Rayhan delivered our API integration two weeks ahead of schedule with zero bugs in production. His clean architecture made it trivial for our team to extend later.",
   },
   {
-    name:     'Mohammed Al-Rashid',
-    position: 'Founder, E-Commerce Platform',
+    name:     'Dr. Tam',
+    position: 'Founder, myattacademy',
     avatar:   null,
     review:   "Exceptional attention to detail. The admin dashboard Rayhan built is intuitive, fast, and exactly what we envisioned — plus features we didn't even think to ask for.",
   },
   {
-    name:     'Priya Sharma',
-    position: 'Product Manager, SaaS Company',
+    name:     'Shahriar Rahat',
+    position: 'Project Manager, OnestTech',
     avatar:   null,
     review:   "Working with Rayhan felt like having a co-founder with technical superpowers. He understood our business goals and translated them into software that works beautifully.",
   },

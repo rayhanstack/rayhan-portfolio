@@ -56,7 +56,7 @@
             >
               <Github v-if="s.icon === 'Github'" :size="18" />
               <Linkedin v-else-if="s.icon === 'Linkedin'" :size="18" />
-              <Twitter v-else-if="s.icon === 'Twitter'" :size="18" />
+              <Facebook v-else-if="s.icon === 'Facebook'" :size="18" />
             </a>
           </div>
         </div>
@@ -167,7 +167,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-vue-next'
+import { Mail, Phone, MapPin, Github, Linkedin, Facebook, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-vue-next'
 import { personal } from '@/data/portfolio'
 
 const form = reactive({ name: '', email: '', subject: '', message: '' })

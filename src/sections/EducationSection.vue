@@ -27,10 +27,6 @@
                 </div>
                 <div class="edu-meta">
                   <span class="mono" style="font-size:0.72rem; color:var(--text-muted);">{{ item.duration }}</span>
-                  <span class="edu-grade">{{ item.grade }}</span>
-                </div>
-                <div class="edu-highlights">
-                  <span v-for="h in item.highlights" :key="h" class="edu-tag">{{ h }}</span>
                 </div>
               </div>
             </div>
@@ -127,24 +123,6 @@ import { education, certifications } from '@/data/portfolio'
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
-}
-.edu-grade {
-  font-size: 0.72rem;
-  padding: 2px 10px;
-  border-radius: 100px;
-  background: rgba(0,217,245,0.1);
-  color: var(--cyan);
-  border: 1px solid rgba(0,217,245,0.2);
-  font-family: var(--font-mono);
-}
-.edu-highlights { display: flex; flex-wrap: wrap; gap: 6px; }
-.edu-tag {
-  font-size: 0.68rem;
-  padding: 2px 9px;
-  border-radius: 100px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
 }
 
 /* Certifications */
