@@ -241,7 +241,7 @@ export const experience = [
 export const education = [
   {
     degree: 'B.Sc. in Computer Science & Engineering',
-    institution: 'Europa University',
+    institution: 'European University of Bangladesh',
     duration: '2025 — Present',
   },
   {
