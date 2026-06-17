@@ -12,6 +12,7 @@
       <EducationSection />
       <TestimonialsSection />
       <ContactSection />
+      <ChatBot />
     </main>
     <Footer />
   </div>
@@ -30,6 +31,7 @@ import ExperienceSection from '@/sections/ExperienceSection.vue'
 import EducationSection from '@/sections/EducationSection.vue'
 import TestimonialsSection from '@/sections/TestimonialsSection.vue'
 import ContactSection from '@/sections/ContactSection.vue'
+import ChatBot from '@/components/ChatBot.vue'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 import { useTheme } from '@/composables/useTheme'
 
