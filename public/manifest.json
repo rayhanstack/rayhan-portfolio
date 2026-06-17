@@ -1,0 +1,16 @@
+{
+  "name": "Rayhan Ali — Full Stack Developer",
+  "short_name": "devrayhan",
+  "description": "Portfolio of Rayhan Ali, Full Stack Developer from Dhaka, Bangladesh. Expert in Laravel & Vue.js.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d1a",
+  "theme_color": "#6C63FF",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

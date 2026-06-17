@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://devrayhan.vercel.app/sitemap.xml
+
+# Disallow build artifacts
+Disallow: /node_modules/
+Disallow: /.env
