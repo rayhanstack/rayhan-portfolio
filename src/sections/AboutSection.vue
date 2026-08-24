@@ -65,6 +65,7 @@
           v-for="(stat, i) in stats"
           :key="stat.label"
           class="stat-card glass-card reveal"
+          v-tilt="{ max: 6, glare: true }"
           :data-delay="i * 80"
         >
           <span class="stat-card-value gradient-text">{{ stat.value }}</span>
@@ -135,7 +136,7 @@ const highlights = [
   position: absolute;
   inset: -8px;
   border-radius: 28px;
-  border: 1px dashed rgba(108, 99, 255, 0.3);
+  border: 1px dashed rgba(91,61,246, 0.3);
   animation: ring-spin 20s linear infinite;
   pointer-events: none;
 }

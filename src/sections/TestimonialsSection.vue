@@ -102,7 +102,7 @@ onUnmounted(() => clearInterval(autoTimer))
 .test-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(108,99,255,0.05) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(91,61,246,0.05) 0%, transparent 70%);
   pointer-events: none;
 }
 .section-header { margin-bottom: 48px; }

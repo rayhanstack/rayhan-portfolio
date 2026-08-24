@@ -15,7 +15,7 @@
 
         <h1 class="hero-name reveal" data-delay="100">
           Hi, I'm<br />
-          <span class="gradient-text">{{ personal.name }}</span>
+          <span class="kinetic-text">{{ personal.name }}</span>
         </h1>
 
         <div class="hero-role reveal" data-delay="200" aria-live="polite">
@@ -27,7 +27,7 @@
         <p class="hero-desc reveal" data-delay="300">{{ personal.description }}</p>
 
         <div class="hero-ctas reveal" data-delay="400">
-          <a href="#contact" class="btn btn-primary btn-lg"><Zap :size="16" />Hire Me</a>
+          <a href="#contact" class="btn btn-primary btn-lg" v-magnetic><Zap :size="16" />Hire Me</a>
           <a href="#projects" class="btn btn-secondary btn-lg"><FolderOpen :size="16" />View Projects</a>
           <a :href="personal.resumeUrl" class="btn btn-ghost" download><Download :size="15" />Resume</a>
         </div>
@@ -46,7 +46,13 @@
       </div>
 
       <!-- ─── RIGHT: Visual ─────────────────────────────────────── -->
-      <div class="hero-visual" aria-hidden="true">
+      <div class="hero-visual" aria-hidden="true" ref="heroVisualEl"
+           @mousemove="onVisualMove" @mouseleave="onVisualLeave">
+
+        <!-- Real WebGL 3D object — rotating faceted core + wireframe shell -->
+        <div class="hero3d-layer">
+          <Hero3DObject />
+        </div>
 
         <!-- Outer glow ring -->
         <div class="v-glow-ring"></div>
@@ -64,7 +70,7 @@
         </div>
 
         <!-- Center card -->
-        <div class="v-center-card">
+        <div class="v-center-card" :style="tiltStyle">
           <!-- Profile avatar -->
           <div class="v-avatar-wrap">
             <div class="v-avatar">
@@ -154,6 +160,26 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { Zap, FolderOpen, Download, Github, Linkedin, Facebook, CheckCircle, Star } from 'lucide-vue-next'
 import { personal, stats } from '@/data/portfolio'
+import Hero3DObject from '@/components/Hero3DObject.vue'
+
+// ── 3D tilt for the visual stack (mouse-tracked perspective) ───
+const heroVisualEl = ref(null)
+const tiltStyle = ref({ transform: 'translate(-50%, -50%) perspective(1000px) rotateX(0deg) rotateY(0deg)' })
+function onVisualMove(e) {
+  const el = heroVisualEl.value
+  if (!el) return
+  const rect = el.getBoundingClientRect()
+  const px = (e.clientX - rect.left) / rect.width - 0.5
+  const py = (e.clientY - rect.top) / rect.height - 0.5
+  const rotY = px * 16
+  const rotX = -py * 16
+  tiltStyle.value = {
+    transform: `translate(-50%, -50%) perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`,
+  }
+}
+function onVisualLeave() {
+  tiltStyle.value = { transform: 'translate(-50%, -50%) perspective(1000px) rotateX(0deg) rotateY(0deg)' }
+}
 
 // ── Typewriter ────────────────────────────────────────────────
 const roles = personal.roles
@@ -206,7 +232,7 @@ const allFeed = [
   { id: 1,  icon: '✅', text: 'Pushed new API endpoint',       time: '2m ago' },
   { id: 2,  icon: '🚀', text: 'Deployed to production',        time: '1h ago' },
   { id: 3,  icon: '🔧', text: 'Fixed auth middleware bug',     time: '3h ago' },
-  { id: 4,  icon: '💡', text: 'Added dark mode toggle',        time: '5h ago' },
+  { id: 4,  icon: '💡', text: 'Shipped a11y improvements',    time: '5h ago' },
   { id: 5,  icon: '📦', text: 'Released v2.1.0',               time: '1d ago' },
   { id: 6,  icon: '🎨', text: 'Redesigned hero section',       time: '2d ago' },
   { id: 7,  icon: '⚡', text: 'Optimized DB query 3x faster',  time: '3d ago' },
@@ -246,9 +272,9 @@ onUnmounted(() => {
   padding: 100px 0 60px;
 }
 
-.blob-1 { width:600px;height:600px;background:rgba(108,99,255,.18);top:-150px;right:-100px;animation-delay:0s; }
-.blob-2 { width:400px;height:400px;background:rgba(0,217,245,.12);bottom:-80px;left:-80px;animation-delay:4s; }
-.blob-3 { width:300px;height:300px;background:rgba(176,110,255,.1);top:50%;left:40%;animation-delay:8s; }
+.blob-1 { width:600px;height:600px;background:rgba(91,61,246,.18);top:-150px;right:-100px;animation-delay:0s; }
+.blob-2 { width:400px;height:400px;background:rgba(18,198,176,.12);bottom:-80px;left:-80px;animation-delay:4s; }
+.blob-3 { width:300px;height:300px;background:rgba(179,77,255,.1);top:50%;left:40%;animation-delay:8s; }
 
 .hero-grid {
   position:absolute;inset:0;
@@ -273,16 +299,16 @@ onUnmounted(() => {
 .status-badge {
   display:inline-flex;align-items:center;gap:8px;
   padding:6px 14px 6px 10px;border-radius:100px;
-  border:1px solid rgba(0,217,245,.25);background:rgba(0,217,245,.06);
-  color:var(--cyan);font-size:.8rem;margin-bottom:24px;
+  border:1px solid rgba(18,198,176,.25);background:rgba(18,198,176,.06);
+  color:var(--teal);font-size:.8rem;margin-bottom:24px;
 }
 .status-dot {
-  width:7px;height:7px;border-radius:50%;background:var(--cyan);
+  width:7px;height:7px;border-radius:50%;background:var(--teal);
   animation:pulse-dot 2s ease infinite;
 }
 @keyframes pulse-dot {
-  0%,100%{box-shadow:0 0 0 0 rgba(0,217,245,.5);}
-  50%{box-shadow:0 0 0 6px rgba(0,217,245,0);}
+  0%,100%{box-shadow:0 0 0 0 rgba(18,198,176,.5);}
+  50%{box-shadow:0 0 0 6px rgba(18,198,176,0);}
 }
 .hero-name {
   font-size:clamp(2.5rem,7vw,5rem);font-weight:800;line-height:1.0;
@@ -324,6 +350,15 @@ onUnmounted(() => {
   display:flex;
   align-items:center;
   justify-content:center;
+  perspective: 1200px;
+}
+
+.hero3d-layer {
+  position:absolute;
+  inset:-10%;
+  z-index:2;
+  pointer-events:none;
+  opacity:0.92;
 }
 
 /* Outer ambient glow ring */
@@ -332,10 +367,10 @@ onUnmounted(() => {
   width:340px;height:340px;
   border-radius:50%;
   background:transparent;
-  border:1px solid rgba(108,99,255,.15);
+  border:1px solid rgba(91,61,246,.15);
   box-shadow:
-    0 0 60px 20px rgba(108,99,255,.08),
-    inset 0 0 60px 20px rgba(108,99,255,.04);
+    0 0 60px 20px rgba(91,61,246,.08),
+    inset 0 0 60px 20px rgba(91,61,246,.04);
   animation:ring-breathe 4s ease-in-out infinite;
   pointer-events:none;
 }
@@ -370,9 +405,9 @@ onUnmounted(() => {
   width:40px;height:40px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;
   font-size:1.1rem;line-height:1;
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(12,11,20,.06);
   backdrop-filter:blur(8px);
-  box-shadow:0 4px 16px rgba(0,0,0,.3);
+  box-shadow:0 4px 16px rgba(30,20,80,.12);
   transition:transform 200ms;
 }
 .orbit-icon:hover{transform:scale(1.15);}
@@ -391,11 +426,14 @@ onUnmounted(() => {
   -webkit-backdrop-filter:blur(24px);
   padding:20px 16px;
   box-shadow:
-    0 0 0 1px rgba(108,99,255,.12),
-    0 24px 64px rgba(0,0,0,.5),
-    0 0 80px rgba(108,99,255,.1);
+    0 0 0 1px rgba(91,61,246,.14),
+    0 32px 64px -12px rgba(30,20,80,.22),
+    0 0 80px rgba(91,61,246,.12);
   display:flex;flex-direction:column;align-items:center;gap:14px;
   z-index:10;
+  transform-style: preserve-3d;
+  transition: transform 120ms ease-out;
+  will-change: transform;
 }
 
 /* Avatar */
@@ -409,7 +447,7 @@ onUnmounted(() => {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    background: linear-gradient(135deg, var(--accent), var(--teal));
     padding: 3px;
 }
 .v-avatar-inner {
@@ -431,7 +469,7 @@ onUnmounted(() => {
     position: absolute;
     inset: -6px;
     border-radius: 50%;
-    border: 1.5px dashed rgba(108, 99, 255, 0.35);
+    border: 1.5px dashed rgba(91,61,246, 0.35);
     animation: ring-spin 10s linear infinite;
     pointer-events: none;
 }
@@ -464,7 +502,7 @@ onUnmounted(() => {
   display:flex;align-items:center;gap:6px;margin-bottom:8px;
 }
 .v-activity-dot{
-  width:5px;height:5px;border-radius:50%;background:var(--cyan);
+  width:5px;height:5px;border-radius:50%;background:var(--teal);
   animation:pulse-dot-sm 1.4s ease infinite;
 }
 @keyframes pulse-dot-sm{
@@ -478,8 +516,8 @@ onUnmounted(() => {
 .v-feed-item{
   display:flex;align-items:center;gap:6px;
   padding:5px 8px;border-radius:8px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.05);
+  background:rgba(91,61,246,.04);
+  border:1px solid rgba(12,11,20,.05);
 }
 .v-feed-icon{font-size:.75rem;flex-shrink:0;}
 .v-feed-text{font-size:.6rem;color:var(--text-secondary);flex:1;min-width:0;
@@ -499,8 +537,8 @@ onUnmounted(() => {
 .v-pill{
   flex:1;display:flex;flex-direction:column;align-items:center;
   padding:8px 4px;border-radius:10px;
-  background:rgba(108,99,255,.07);
-  border:1px solid rgba(108,99,255,.12);
+  background:rgba(91,61,246,.07);
+  border:1px solid rgba(91,61,246,.12);
   gap:1px;
 }
 .v-pill-val{font-family:var(--font-display);font-size:.95rem;font-weight:800;line-height:1;}
@@ -510,13 +548,13 @@ onUnmounted(() => {
 .v-float-card {
   position:absolute;
   background:var(--bg-glass);
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(12,11,20,.06);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
   border-radius:14px;
   padding:10px 14px;
   display:flex;align-items:center;gap:10px;
-  box-shadow:0 8px 32px rgba(0,0,0,.35);
+  box-shadow:0 12px 32px -6px rgba(30,20,80,.16);
   z-index:20;
   pointer-events:none;
   white-space:nowrap;
@@ -540,7 +578,7 @@ onUnmounted(() => {
 .fc-spark-row{display:flex;align-items:flex-end;gap:3px;height:32px;}
 .fc-spark-bar{
   width:6px;border-radius:3px;
-  background:linear-gradient(to top,var(--accent),var(--cyan));
+  background:linear-gradient(to top,var(--accent),var(--teal));
   animation:spark-bounce 1.4s ease-in-out infinite alternate;
 }
 @keyframes spark-bounce{

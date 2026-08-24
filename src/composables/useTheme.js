@@ -1,27 +1,6 @@
 // src/composables/useTheme.js
-import { ref, watch, onMounted } from 'vue'
-
-const isDark = ref(true)
-
+// Single unified modern theme — dark/light toggle removed by design.
+// Kept as a no-op composable so existing imports don't break.
 export function useTheme() {
-  onMounted(() => {
-    const saved = localStorage.getItem('theme')
-    isDark.value = saved ? saved === 'dark' : true
-    applyTheme()
-  })
-
-  watch(isDark, () => {
-    localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
-    applyTheme()
-  })
-
-  function applyTheme() {
-    document.documentElement.classList.toggle('light', !isDark.value)
-  }
-
-  function toggleTheme() {
-    isDark.value = !isDark.value
-  }
-
-  return { isDark, toggleTheme }
+  return {}
 }

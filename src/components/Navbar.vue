@@ -30,18 +30,8 @@
 
       <!-- Right Controls -->
       <div class="nav-controls">
-        <!-- Theme Toggle -->
-        <button
-          class="theme-btn"
-          @click="toggleTheme"
-          :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-        >
-          <Sun v-if="!isDark" :size="18" />
-          <Moon v-else :size="18" />
-        </button>
-
         <!-- Hire Me CTA -->
-        <a href="#contact" class="btn btn-primary hidden sm:inline-flex">
+        <a href="#contact" class="btn btn-primary hidden sm:inline-flex" v-magnetic>
           <Zap :size="15" />
           Hire Me
         </a>
@@ -93,12 +83,10 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { Sun, Moon, Zap } from 'lucide-vue-next'
-import { useTheme } from '@/composables/useTheme'
+import { Zap } from 'lucide-vue-next'
 import { useActiveSection } from '@/composables/useActiveSection'
 import { navLinks } from '@/data/portfolio'
 
-const { isDark, toggleTheme } = useTheme()
 const { activeSection } = useActiveSection()
 
 const scrolled = ref(false)
@@ -190,24 +178,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.theme-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: var(--accent-dim);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 200ms;
-}
-.theme-btn:hover {
-  color: var(--accent);
-  border-color: var(--accent);
 }
 
 /* Hamburger */

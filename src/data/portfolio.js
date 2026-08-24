@@ -112,7 +112,7 @@ export const projects = [
     liveUrl:   'https://demo.trustedhrm.com',
     githubUrl: '#',
     featured:  true,
-    accentColor: '#6C63FF',
+    accentColor: '#5B3DF6',
   },
   {
     id: 2,
@@ -127,7 +127,7 @@ export const projects = [
     liveUrl:   'https://demo.newsscript.com',
     githubUrl: '#',
     featured:  true,
-    accentColor: '#6C63FF',
+    accentColor: '#FF5D73',
   },
   {
     id: 3,
@@ -142,7 +142,7 @@ export const projects = [
     liveUrl:   'https://landlord.onesttech.com',
     githubUrl: '#',
     featured:  true,
-    accentColor: '#6C63FF',
+    accentColor: '#FFB020',
   },
   {
     id: 4,
@@ -158,7 +158,7 @@ export const projects = [
     liveUrl:   'https://rayhantv.vercel.app',
     githubUrl: 'https://github.com/rayhanstack/tv-app',
     featured:  true,
-    accentColor: '#00D9F5',
+    accentColor: '#12C6B0',
   },
   {
     id: 5,
@@ -174,7 +174,7 @@ export const projects = [
     liveUrl:   '#',
     githubUrl: 'https://github.com/mdrayhanseopage1',
     featured:  false,
-    accentColor: '#B06EFF',
+    accentColor: '#B34DFF',
   },
   {
     id: 6,
@@ -190,7 +190,7 @@ export const projects = [
     liveUrl:   '#',
     githubUrl: '#',
     featured:  false,
-    accentColor: '#6C63FF',
+    accentColor: '#5B3DF6',
   },
 ]
 

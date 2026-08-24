@@ -88,7 +88,7 @@ import { personal, navLinks } from '@/data/portfolio'
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), var(--cyan), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent), var(--teal), transparent);
 }
 
 .footer-grid {
@@ -186,21 +186,21 @@ a.footer-contact-item:hover { color: var(--accent); }
   align-items: center;
   gap: 7px;
   font-size: 0.78rem;
-  color: var(--cyan);
+  color: var(--teal);
   padding: 5px 12px;
   border-radius: 100px;
-  background: rgba(0,217,245,0.06);
-  border: 1px solid rgba(0,217,245,0.2);
+  background: rgba(18,198,176,0.06);
+  border: 1px solid rgba(18,198,176,0.2);
 }
 .status-dot-sm {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--cyan);
+  background: var(--teal);
   animation: pulse-sm 2s ease infinite;
 }
 @keyframes pulse-sm {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,217,245,0.4); }
-  50% { opacity: 0.8; box-shadow: 0 0 0 4px rgba(0,217,245,0); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(18,198,176,0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 4px rgba(18,198,176,0); }
 }
 
 /* Bottom */

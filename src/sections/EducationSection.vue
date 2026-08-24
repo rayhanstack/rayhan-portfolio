@@ -158,8 +158,8 @@ import { education, certifications } from '@/data/portfolio'
 .cert-badge {
   width: 30px; height: 30px;
   border-radius: 8px;
-  background: rgba(0,217,245,0.08);
-  color: var(--cyan);
+  background: rgba(18,198,176,0.08);
+  color: var(--teal);
   display: flex;
   align-items: center;
   justify-content: center;

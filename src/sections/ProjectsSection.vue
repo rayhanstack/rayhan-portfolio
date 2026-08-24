@@ -31,6 +31,7 @@
           v-for="(project, i) in filteredProjects"
           :key="project.id"
           class="project-card"
+          v-tilt="{ max: 8, glare: true }"
           :class="{ featured: project.featured }"
           @click="openModal(project)"
           :style="{ transitionDelay: `${i * 60}ms` }"
@@ -245,10 +246,10 @@ onUnmounted(() => {
 .project-card:hover {
   transform: translateY(-6px);
   border-color: var(--border);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  box-shadow: 0 24px 56px -16px rgba(30,20,80,0.22);
 }
 .project-card.featured {
-  border-color: rgba(108,99,255,0.25);
+  border-color: rgba(91,61,246,0.25);
 }
 
 /* Thumbnail */
@@ -301,9 +302,9 @@ onUnmounted(() => {
   font-size: 0.65rem;
   padding: 2px 8px;
   border-radius: 100px;
-  background: rgba(0, 217, 245, 0.1);
-  border: 1px solid rgba(0, 217, 245, 0.25);
-  color: var(--cyan);
+  background: rgba(18,198,176, 0.1);
+  border: 1px solid rgba(18,198,176, 0.25);
+  color: var(--teal);
   letter-spacing: 0.04em;
 }
 
@@ -336,7 +337,7 @@ onUnmounted(() => {
   border-radius: 100px;
   background: var(--accent-dim);
   color: var(--accent);
-  border: 1px solid rgba(108,99,255,0.2);
+  border: 1px solid rgba(91,61,246,0.2);
   font-family: var(--font-mono);
 }
 
@@ -387,7 +388,7 @@ onUnmounted(() => {
   max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  box-shadow: 0 40px 90px -20px rgba(30,20,80,0.32);
 }
 .modal-header {
   display: flex;
@@ -447,7 +448,7 @@ onUnmounted(() => {
   font-size: 0.9rem;
   color: var(--text-secondary);
 }
-.feature-check { color: var(--cyan); flex-shrink: 0; }
+.feature-check { color: var(--teal); flex-shrink: 0; }
 
 .modal-actions {
   display: flex;

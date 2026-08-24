@@ -141,7 +141,7 @@ import { experience } from '@/data/portfolio'
   padding: 4px 10px;
   background: var(--accent-dim);
   border-radius: 100px;
-  border: 1px solid rgba(108,99,255,0.2);
+  border: 1px solid rgba(91,61,246,0.2);
   letter-spacing: 0.04em;
 }
 .exp-desc {

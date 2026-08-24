@@ -203,7 +203,7 @@ function resetForm() {
 .contact-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(108,99,255,0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(91,61,246,0.07) 0%, transparent 70%);
   pointer-events: none;
 }
 

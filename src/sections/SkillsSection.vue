@@ -46,6 +46,7 @@
               v-for="(skill, i) in skills[activeTab].items"
               :key="skill.name"
               class="skill-card"
+              v-tilt="{ max: 6, glare: false }"
               :style="{ animationDelay: `${i * 55}ms` }"
             >
               <div class="skill-top">
@@ -112,7 +113,7 @@ const extraTechs = [
 .skills-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(108,99,255,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(91,61,246,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -166,7 +167,7 @@ const extraTechs = [
   line-height: 1.4;
 }
 .skill-tab.active .tab-count {
-  background: rgba(108,99,255,0.18);
+  background: rgba(91,61,246,0.18);
   color: var(--accent);
 }
 
@@ -220,8 +221,8 @@ const extraTechs = [
   flex-shrink: 0;
 }
 .tone-accent { background: var(--accent-dim); }
-.tone-cyan   { background: var(--cyan-dim); }
-.tone-violet { background: rgba(176, 110, 255, 0.12); }
+.tone-cyan   { background: var(--teal-dim); }
+.tone-violet { background: rgba(179,77,255, 0.12); }
 
 .skill-emoji { font-size: 0.95rem; line-height: 1; }
 .skill-name {
@@ -247,7 +248,7 @@ const extraTechs = [
   transition: width 0.8s var(--ease-out-expo);
 }
 .fill-accent { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
-.fill-cyan   { background: linear-gradient(90deg, #00D9F5, #4DE8FF); }
+.fill-cyan   { background: linear-gradient(90deg, var(--teal), #4DE8D0); }
 .fill-violet { background: linear-gradient(90deg, var(--violet), #C893FF); }
 
 /* ── Tech cloud ───────────────────────────────────────────────── */

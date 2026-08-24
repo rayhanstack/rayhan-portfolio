@@ -18,6 +18,7 @@
           :key="service.title"
           class="service-card reveal"
           :data-delay="i * 70"
+          v-tilt="{ max: 7, glare: true }"
         >
           <div class="service-icon-wrap">
             <component :is="getIcon(service.icon)" :size="22" class="service-icon" />
@@ -36,7 +37,7 @@
           <h3>Got a project in mind?</h3>
           <p>Let's discuss how I can help bring it to life.</p>
         </div>
-        <a href="#contact" class="btn btn-primary">
+        <a href="#contact" class="btn btn-primary" v-magnetic>
           <Zap :size="15" /> Start a Project
         </a>
       </div>
@@ -56,7 +57,7 @@ function getIcon(name) { return iconMap[name] || Layers }
 .services-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0,217,245,0.05) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(18,198,176,0.05) 0%, transparent 70%);
   pointer-events: none;
 }
 .section-header { max-width: 560px; margin-bottom: 48px; }
@@ -93,7 +94,7 @@ function getIcon(name) { return iconMap[name] || Layers }
 .service-card:hover {
   transform: translateY(-5px);
   border-color: var(--border);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  box-shadow: 0 24px 48px -16px rgba(30,20,80,0.20);
 }
 .service-card:hover::before { opacity: 1; }
 .service-card:hover .service-arrow { opacity: 1; transform: translate(2px, -2px); }
@@ -108,7 +109,7 @@ function getIcon(name) { return iconMap[name] || Layers }
   margin-bottom: 20px;
   transition: background 280ms;
 }
-.service-card:hover .service-icon-wrap { background: rgba(108,99,255,0.2); }
+.service-card:hover .service-icon-wrap { background: rgba(91,61,246,0.2); }
 .service-icon { color: var(--accent); }
 
 .service-title {
