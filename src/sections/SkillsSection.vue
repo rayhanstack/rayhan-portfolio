@@ -103,9 +103,8 @@ function selectTab(i) {
 }
 
 const extraTechs = [
-  'Inertia.js', 'Livewire', 'Alpine.js', 'Webpack', 'Pinia', 'Vuex',
-  'Axios', 'Sanctum', 'Passport', 'Horizon', 'Telescope', 'Pest', 'PHPUnit',
-  'Bash', 'Linux', 'Nginx', 'GitHub Actions', 'Cloudflare',
+  'Livewire','Vuex','Axios', 'JWT', 'Oauth2','Telescope', 'Pest', 'PHPUnit',
+  'Bash', 'Linux', 'Nginx', 'GitHub Actions', 'Cloudflare', 'Vercel','Asana', 'Trello', 'ClickUp','WebSockets','DFD', 'ERD'
 ]
 </script>
 

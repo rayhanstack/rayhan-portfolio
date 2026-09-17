@@ -19,7 +19,6 @@
         </h1>
 
         <div class="hero-role reveal" data-delay="200" aria-live="polite">
-          <span class="role-prefix mono">$ </span>
           <span class="role-text">{{ displayedRole }}</span>
           <span class="role-cursor mono" aria-hidden="true">▋</span>
         </div>
@@ -122,8 +121,8 @@
         <div class="v-float-card fc-1">
           <CheckCircle :size="14" class="fc-icon-check" />
           <div>
-            <div class="fc-title">Project Delivered</div>
-            <div class="fc-sub mono">E-Commerce Platform</div>
+            <div class="fc-title">&lt; 24h Response</div>
+            <div class="fc-sub mono">Usually replies same day</div>
           </div>
         </div>
 

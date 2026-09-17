@@ -17,7 +17,7 @@
               <div class="img-ring" aria-hidden="true"></div>
               <!-- Floating experience badge -->
               <div class="exp-badge">
-                <span class="exp-num gradient-text">3+</span>
+                <span class="exp-num gradient-text">4+</span>
                 <span class="exp-label">Years of<br/>Experience</span>
               </div>
             </div>
